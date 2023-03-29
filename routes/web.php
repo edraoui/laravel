@@ -41,7 +41,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
          */
         Route::post('/saveCookie', 'HomeController@saveCookie')->name('saveCookie');
         Route::post('/saveAvatar', 'HomeController@saveAvatar')->name('saveAvatar');
-
+        Route::get('users/export','HomeController@export' )->name('UsersExport');
+        Route::post('users/import','HomeController@import' )->name('UsersImport');
         Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
     });
 });

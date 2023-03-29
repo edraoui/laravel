@@ -34,6 +34,14 @@
             </div>
 
         </form>
+        <br><br><br>
+        <a href="{{ route('UsersExport') }}" class=" btn btn-lg btn-primary">Users Export</a>
+        <form method="POST" action="{{ route('UsersImport') }}" enctype="multipart/form-data">
+            @csrf
+            <input type="file" name="file">
+            <button type="submit">Users Import</button>
+        </form>
+
         @endauth
 
         @guest
