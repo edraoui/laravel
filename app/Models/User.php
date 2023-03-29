@@ -21,7 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'username',
-        'password',
+        'avatar',
+        'password'
     ];
     /**
     * Always encrypt the password when it is updated.

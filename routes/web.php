@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['namespace' => 'App\Http\Controllers'], function()
-{   
+{
     /**
      * Home Routes
      */
@@ -40,6 +40,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
          * Logout Routes
          */
         Route::post('/saveCookie', 'HomeController@saveCookie')->name('saveCookie');
+        Route::post('/saveAvatar', 'HomeController@saveAvatar')->name('saveAvatar');
 
         Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
     });
