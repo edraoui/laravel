@@ -20,6 +20,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
      */
     Route::get('/', 'HomeController@index')->name('home.index');
     Route::get('/generate-pdf', 'HomeController@generatePDF')->name('generate-pdf');
+    Route::get('/preview', 'HomeController@preview')->name('preview');;
+    Route::get('/download', 'HomeController@download')->name('download');
 
 
     Route::group(['middleware' => ['guest']], function() {
