@@ -8,6 +8,9 @@ use luminate\Http\UploadedFile;
 use App\Exports\UsersExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\UsersImport;
+use App\Models\User;
+use PDF;
+
 
 class HomeController extends Controller
 {
@@ -39,5 +42,19 @@ class HomeController extends Controller
                 Excel::import(new UsersImport, request()->file('file'));
 
                 return redirect('/')->with('success', 'All good!');
+            }
+            public function generatePDF()
+            {
+                $users = User::get();
+
+                $data = [
+                    'title' => 'Welcome to ItSolutionStuff.com',
+                    'date' => date('m/d/Y'),
+                    'users' => $users
+                ];
+
+                $pdf = PDF::loadView('myPDF', $data);
+
+                return $pdf->download('itsolutionstuff.pdf');
             }
         }
